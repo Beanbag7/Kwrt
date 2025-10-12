@@ -4,9 +4,8 @@ shopt -s extglob
 
 sed -i '$a src-git kiddin9 https://github.com/kiddin9/kwrt-packages.git;main' feeds.conf.default
 sed -i "/telephony/d" feeds.conf.default
-
-sed -i "s?targets/%S/packages?targets/%S/\$(LINUX_VERSION)?" include/feeds.mk
-
+echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf.default
+sed -i "s?targets/%S/packages?targets/%S/\$(LINUX_VERSION)?" include/feeds.m
 sed -i '/	refresh_config();/d' scripts/feeds
 
 ./scripts/feeds update -a
